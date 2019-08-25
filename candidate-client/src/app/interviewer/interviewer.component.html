@@ -1,0 +1,32 @@
+<div class="card interviewerCard">
+	<div class="row">
+		<div class="col-md-10">
+			<h4>{{ interviewer.name }}</h4>
+		</div>
+		<div class="col-md-2">
+			<h5 class="float-right">{{ interviewer.sum | number:"1.2-2" }}</h5>
+		</div>
+		<div class="col-md-12 interviewerData">
+			<div class="row">
+				<div class="col-md-2"><b>ID:</b></div>
+				<div class="col-md-10">{{ interviewer.id }}</div>
+
+				<div class="col-md-2"><b>Name:</b></div>
+				<div class="col-md-10">{{ interviewer.name }}</div>
+				
+				<div class="col-md-2"><b>Hourly rate:</b></div>
+				<div class="col-md-10">{{ interviewer.hourlyRate }}</div>
+			</div>
+		</div>
+
+		<div class="col-md-12">
+			<button type="button" class="btn btn-primary" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="collapseSessions">
+				Toggle sessions
+			</button>
+		</div>
+
+		<div id="collapseSessions" [collapse]="isCollapsed" [isAnimated]="true" class="col-md-12 ">
+			<app-session *ngFor="let session of interviewer.sessions" [session]="session"></app-session>
+		</div>
+	</div>
+</div>

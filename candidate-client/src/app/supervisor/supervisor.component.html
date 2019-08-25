@@ -1,0 +1,13 @@
+<div class="card supervisorCard">
+	<div class="row">
+		<div class="col-md-10">
+			<h3>{{ supervisor.name }}</h3>
+		</div>
+		<div class="col-md-2">
+			<h4 class="float-right">{{ supervisor.sum | number:"1.2-2" }}</h4>
+		</div>
+		<div class="d-none d-lg-block col-md-12">
+			<app-interviewer *ngFor="let interviewer of supervisor.interviewers" [interviewer]="interviewer"></app-interviewer>
+		</div>
+	</div>
+</div>
